@@ -1,224 +1,560 @@
 # Brook
 
-[![Build Status](https://travis-ci.org/txthinking/brook.svg?branch=master)](https://travis-ci.org/txthinking/brook) [![Go Report Card](https://goreportcard.com/badge/github.com/txthinking/brook)](https://goreportcard.com/report/github.com/txthinking/brook) [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0) [![Wiki](https://img.shields.io/badge/docs-wiki-blue.svg)](https://github.com/txthinking/brook/wiki)
+<!--G-R3M673HK5V-->
 
-<p align="center">
-    <img style="float: right;" src="https://storage.googleapis.com/txthinking-file/_/brook_200x200.png" alt="Brook"/>
-</p>
+[🇨🇳 中文](README_ZH.md)
 
----
+[![Build Status](https://travis-ci.org/txthinking/brook.svg?branch=master)](https://travis-ci.org/txthinking/brook)
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
-### v20180707
+[🤝 Telegram](https://t.me/brookgroup)
+[💬 Private](https://join.txthinking.com)
+[🩸 Youtube](https://www.youtube.com/txthinking)
+[❤️ Sponsor](https://github.com/sponsors/txthinking)
 
-* Mode [wiki](https://github.com/txthinking/brook/wiki/Mode-in-Brook-GUI-client)
-* Thanks [KarlZeo](https://github.com/KarlZeo) for letting us can `brew cask install brook`
+A cross-platform network tool designed for developers.
 
----
+[🗣 Subscribe Announcement](https://t.me/txthinking_news)
 
-### Table of Contents
+<!--TOC-->
 
-* [What is Brook](#what-is-brook)
-* [Download](#download)
-* [Packages](#packages)
-* [**Server**](#server)
-* [**Client (CLI)**](#client-cli)
-* [**Client (GUI)**](#client-gui)
-* [Tunnel](#tunnel)
-* [Tproxy](#tproxy)
-* [Relay](#relay)
-* [Socks5](#socks5)
-* [Socks5 to HTTP](#socks5-to-http)
-* [Shadowsocks](#shadowsocks)
-* [Contributing](#contributing)
-* [License](#license)
+## Install
 
-## What is Brook
+### Install brook command
 
-Brook is a cross-platform(Linux/MacOS/Windows/Android/iOS) proxy/vpn software.<br/>
-Brook's goal is to keep it simple, stupid and not detectable.
+> [nami](https://github.com/txthinking/nami) can automatically download the command corresponding to your system. If on Windows, run in [Git Bash](https://gitforwindows.org)<br/>
+> or<br/>
+> If your system is not Linux, MacOS, Windows, or don't want nami, you can download it directly on the [releases](https://github.com/txthinking/brook/releases) page<br/>
+> or<br/>
+> the script but only some parameters are supported: `bash <(curl https://bash.ooo/brook.sh)`<br/>
+> or<br/>
+> scripts written by others<br/>
+> or<br/>
+> Archlinux: `pacman -S brook` (may be outdated)<br/>
+> or<br/>
+> brew: `brew install brook` (may be outdated)<br/>
 
-## Download
-
-| Download | Server/Client | OS | Arch | Remark |
-| --- | --- | --- | --- | --- |
-| [brook](https://github.com/txthinking/brook/releases/download/v20180707/brook) | Server & Client | Linux | amd64 | CLI |
-| [brook_linux_386](https://github.com/txthinking/brook/releases/download/v20180707/brook_linux_386) | Server & Client | Linux | 386 | CLI |
-| [brook_linux_arm64](https://github.com/txthinking/brook/releases/download/v20180707/brook_linux_arm64) | Server & Client | Linux | arm64 | CLI |
-| [brook_linux_arm5](https://github.com/txthinking/brook/releases/download/v20180707/brook_linux_arm5) | Server & Client | Linux | arm5 | CLI |
-| [brook_linux_arm6](https://github.com/txthinking/brook/releases/download/v20180707/brook_linux_arm6) | Server & Client | Linux | arm6 | CLI |
-| [brook_linux_arm7](https://github.com/txthinking/brook/releases/download/v20180707/brook_linux_arm7) | Server & Client | Linux | arm7 | CLI |
-| [brook_linux_mips](https://github.com/txthinking/brook/releases/download/v20180707/brook_linux_mips) | Server & Client | Linux | mips | CLI |
-| [brook_linux_mipsle](https://github.com/txthinking/brook/releases/download/v20180707/brook_linux_mipsle) | Server & Client | Linux | mipsle | CLI |
-| [brook_linux_mips64](https://github.com/txthinking/brook/releases/download/v20180707/brook_linux_mips64) | Server & Client | Linux | mips64 | CLI |
-| [brook_linux_mips64le](https://github.com/txthinking/brook/releases/download/v20180707/brook_linux_mips64le) | Server & Client | Linux | mips64le | CLI |
-| [brook_linux_ppc64](https://github.com/txthinking/brook/releases/download/v20180707/brook_linux_ppc64) | Server & Client | Linux | ppc64 | CLI |
-| [brook_linux_ppc64le](https://github.com/txthinking/brook/releases/download/v20180707/brook_linux_ppc64le) | Server & Client | Linux | ppc64le | CLI |
-| [brook_macos_amd64](https://github.com/txthinking/brook/releases/download/v20180707/brook_macos_amd64) | Server & Client | MacOS | amd64 | CLI |
-| [brook_windows_amd64.exe](https://github.com/txthinking/brook/releases/download/v20180707/brook_windows_amd64.exe) | Server & Client | Windows | amd64 | CLI |
-| [brook_windows_386.exe](https://github.com/txthinking/brook/releases/download/v20180707/brook_windows_386.exe) | Server & Client | Windows | 386 | CLI |
-| [Brook.dmg](https://github.com/txthinking/brook/releases/download/v20180707/Brook.dmg) | Client | MacOS | amd64 | GUI |
-| [Brook.Setup.exe](https://github.com/txthinking/brook/releases/download/v20180707/Brook.Setup.exe) | Client | Windows | amd64 | GUI |
-| [App Store](https://itunes.apple.com/us/app/brook-brook-shadowsocks-vpn-proxy/id1216002642) | Client | iOS | - | GUI |
-| [Brook.apk](https://github.com/txthinking/brook/releases/download/v20180707/Brook.apk)(No Google Play) | Client | Android | - | GUI |
-
-**See [wiki](https://github.com/txthinking/brook/wiki) for more tutorials**
-
-## Packages
-
-### ArchLinux
+Install nami
 
 ```
-sudo pacman -S brook
+bash <(curl https://bash.ooo/nami.sh)
 ```
 
-### Snap
+Install brook
 
 ```
-sudo snap install brook
+nami install brook
 ```
 
-### MacOS(GUI)
+### Install Brook GUI client
+
+[iOS & M1 Mac](https://apps.apple.com/us/app/brook-a-cross-platform-proxy/id1216002642)
+[Android](https://github.com/txthinking/brook/releases/latest/download/Brook.apk)
+[macOS](https://github.com/txthinking/brook/releases/latest/download/Brook.dmg)
+[Windows](https://github.com/txthinking/brook/releases/latest/download/Brook.exe)
+[OpenWrt](#gui-for-official-openwrt)
+[Linux CLI or tun2brook](https://github.com/txthinking/tun2brook)
+
+> 1. Windows: requires that the latest version of Edge(chromium-based) has been installed<br/>
+> 2. Windows Security Virus & threat protection: Settings -> Update & Security -> Windows Security -> Virus & threat protection -> Virus & threat protection settings -> manage settings -> Exclusions -> Add or remove exclusions -> Add an exclusion -> File -> Select Brook.exe<br/>
+
+[How the Brook GUI works](https://talks.txthinking.com/articles/brook-en.article)
+
+## brook `subcommand` and `command line arguments`
+
+-   all `subcoommand`: `brook --help`
+-   command line arguments of `subommand`: `brook xxx --help`
+
+## brook rule format
+
+There are three types of rule files
+
+-   domain list: One domain name per line, the suffix matches mode. Can be a local file or an HTTPS URL
+-   CIDR v4 list: One CIDR per line, which can be a local file or an HTTPS URL
+-   CIDR v6 list: One CIDR per line, which can be a local file or an HTTPS URL
+
+Rules file can be used for
+
+-   Server-side: blocking domain name and IP
+-   brook dns: bypass, block domain
+-   brook tproxy: bypass, block, domain, ip
+-   OpenWrt: bypass, block, domain, ip
+-   Brook GUI: bypass, block, domain, ip
+
+## Examples
+
+List some examples of common scene commands, pay attention to replace the parameters such as IP, port, password, domain name, certificate path, etc. in the example by yourself
+
+### Run brook server
 
 ```
-brew cask install brook
-```
-
-## Brook
-
-```
-NAME:
-   Brook - A Cross-Platform Proxy Software
-
-USAGE:
-   brook [global options] command [command options] [arguments...]
-
-VERSION:
-   20180707
-
-AUTHOR:
-   Cloud <cloud@txthinking.com>
-
-COMMANDS:
-     server         Run as server mode
-     servers        Run as multiple servers mode
-     client         Run as client mode
-     tunnel         Run as tunnel mode
-     tproxy         Run as tproxy mode, transparent proxy, only works on Linux
-     streamserver   Run as server mode
-     streamservers  Run as multiple servers mode
-     streamclient   Run as client mode
-     ssserver       Run as shadowsocks server mode, fixed method is aes-256-cfb
-     ssservers      Run as shadowsocks multiple servers mode, fixed method is aes-256-cfb
-     ssclient       Run as shadowsocks client mode, fixed method is aes-256-cfb
-     socks5         Run as raw socks5 server
-     relay          Run as relay mode
-     relays         Run as multiple relays mode
-     qr             Print brook server QR code
-     socks5tohttp   Convert socks5 to http proxy
-     systemproxy    Set system proxy with pac url, or remove, only works on MacOS/Windows
-     help, h        Shows a list of commands or help for one command
-
-GLOBAL OPTIONS:
-   --debug, -d               Enable debug
-   --listen value, -l value  Listen address for debug (default: ":6060")
-   --help, -h                show help
-   --version, -v             print the version
-```
-
-### Server
-
-```
-# Run as a brook server
-$ brook server -l :9999 -p password
+SRC --TCP--> brook client/relayoverbrook/dns/tproxy/GUI Client --TCP(Brook Protocol)--> brook server --TCP--> DST
+SRC --UDP--> brook client/relayoverbrook/dns/tproxy/GUI Client --UDP/TCP(Brook Protocol)--> brook server --UDP--> DST
 ```
 
 ```
-# Run as multiple brook servers
-$ brook servers -l ":9999 password" -l ":8888 password"
+brook server --listen :9999 --password hello
 ```
 
-> If you run a public/shared server, do not forget this parameter --tcpDeadline
-
-### Client (CLI)
+Get brook link with `--udpovertcp`
 
 ```
-# Run as brook client, start a socks5 proxy socks5://127.0.0.1:1080
-$ brook client -l 127.0.0.1:1080 -i 127.0.0.1 -s server_address:port -p password
+brook link --server 1.2.3.4:9999 --password hello --udpovertcp --name 'my brook server'
 ```
 
-```
-# Run as brook client, start a http(s) proxy http(s)://127.0.0.1:8080
-$ brook client -l 127.0.0.1:8080 -i 127.0.0.1 -s server_address:port -p password --http
-```
+or get brook link with udp over udp
 
-### Client (GUI)
-
-See [wiki](https://github.com/txthinking/brook/wiki)
-
-#### Tunnel
+> Make sure you have no problem with your local UDP network to your server
 
 ```
-# Run as tunnel 127.0.0.1:5 to 1.2.3.4:5
-$ brook tunnel -l 127.0.0.1:5 -t 1.2.3.4:5 -s server_address:port -p password
+brook link --server 1.2.3.4:9999 --password hello --name 'my brook server'
 ```
 
-#### Tproxy
-
-See [wiki](https://github.com/txthinking/brook/wiki/How-to-run-transparent-proxy-on-Linux%3F)
-
-#### Relay
+### Run brook wsserver
 
 ```
-# Run as relay to 1.2.3.4:5
-$ brook relay -l :5 -r 1.2.3.4:5
-```
-
-#### Socks5
-
-```
-# Run as a raw socks5 server 1.2.3.4:1080
-$ brook socks5 -l :1080 -i 1.2.3.4
-```
-
-#### Socks5 to HTTP
-
-```
-# Convert socks5://127.0.0.1:1080 to http(s)://127.0.0.1:8080 proxy
-$ brook socks5tohttp -l 127.0.0.1:8080 -s 127.0.0.1:1080
-```
-
-#### Shadowsocks
-
-```
-# Run as a shadowsocks server
-$ brook ssserver -l :9999 -p password
+SRC --TCP--> brook wsclient/relayoverbrook/dns/tproxy/GUI Client --TCP(Brook Protocol)--> brook wsserver --TCP--> DST
+SRC --UDP--> brook wsclient/relayoverbrook/dns/tproxy/GUI Client --TCP(Brook Protocol)--> brook wsserver --UDP--> DST
 ```
 
 ```
-# Run as multiple shadowsocks servers
-$ brook ssservers -l ":9999 password" -l ":8888 password"
+brook wsserver --listen :9999 --password hello
 ```
 
-> If you run a public/shared server, do not forget this parameter --tcpDeadline
+Get brook link
 
 ```
-# Run as shadowsocks client, start a socks5 proxy socks5://127.0.0.1:1080
-$ brook ssclient -l 127.0.0.1:1080 -i 127.0.0.1 -s server_address:port -p password
+brook link --server ws://1.2.3.4:9999 --password hello --name 'my brook wsserver'
+```
+
+or get brook link with domain, even if that's not your domain
+
+```
+brook link --server ws://hello.com:9999 --password hello --address 1.2.3.4:9999 --name 'my brook wsserver'
+```
+
+### Run brook wssserver: automatically certificate
+
+> Make sure your domain has been resolved to your server IP successfully. Automatic certificate issuance requires the use of port 80
+
+```
+brook wssserver --domainaddress domain.com:443 --password hello
+```
+
+Get brook link
+
+```
+brook link --server wss://domain.com:443 --password hello --name 'my brook wssserver'
+```
+
+### Run brook wssserver Use a certificate issued by an existing trust authority
+
+> Make sure your domain has been resolved to your server IP successfully
+
+```
+brook wssserver --domainaddress domain.com:443 --password hello --cert /root/cert.pem --certkey /root/certkey.pem
+```
+
+Get brook link
+
+```
+brook link --server wss://domain.com:443 --password hello --name 'my brook wssserver'
+```
+
+### Run brook wssserver issue untrusted certificates yourself, any domain
+
+Install [mad](https://github.com/txthinking/mad)
+
+```
+nami install mad
+```
+
+Generate root ca
+
+```
+mad ca --ca /root/ca.pem --key /root/cakey.pem
+```
+
+Generate domain cert by root ca
+
+```
+mad cert --ca /root/ca.pem --ca_key /root/cakey.pem --cert /root/cert.pem --key /root/certkey.pem --domain domain.com
+```
+
+Run brook
+
+```
+brook wssserver --domainaddress domain.com:443 --password hello --cert /root/cert.pem --certkey /root/certkey.pem
+```
+
+Get brook link with `--insecure`
+
+```
+brook link --server wss://domain.com:443 --password hello --name 'my brook wssserver' --address 1.2.3.4:443 --insecure
+```
+
+or get brook link with `--ca`
+
+```
+brook link --server wss://domain.com:443 --password hello --name 'my brook wssserver' --address 1.2.3.4:443 --ca /root/ca.pem
+```
+
+### withoutBrookProtocol
+
+Better performance, but data is not strongly encrypted using Brook protocol. So please use certificate encryption, and it is not recommended to use --withoutBrookProtocol and --insecure together
+
+### withoutBrookProtocol automatically certificate
+
+> Make sure your domain has been resolved to your server IP successfully. Automatic certificate issuance requires the use of port 80
+
+```
+brook wssserver --domainaddress domain.com:443 --password hello --withoutBrookProtocol
+```
+
+Get brook link
+
+```
+brook link --server wss://domain.com:443 --password hello --withoutBrookProtocol
+```
+
+### withoutBrookProtocol Use a certificate issued by an existing trust authority
+
+> Make sure your domain has been resolved to your server IP successfully
+
+```
+brook wssserver --domainaddress domain.com:443 --password hello --cert /root/cert.pem --certkey /root/certkey.pem --withoutBrookProtocol
+```
+
+Get brook link
+
+```
+brook link --server wss://domain.com:443 --password hello --name 'my brook wssserver' --withoutBrookProtocol
+```
+
+### withoutBrookProtocol issue untrusted certificates yourself, any domain
+
+Install [mad](https://github.com/txthinking/mad)
+
+```
+nami install mad
+```
+
+Generate root ca
+
+```
+mad ca --ca /root/ca.pem --key /root/cakey.pem
+```
+
+Generate domain cert by root ca
+
+```
+mad cert --ca /root/ca.pem --ca_key /root/cakey.pem --cert /root/cert.pem --key /root/certkey.pem --domain domain.com
+```
+
+Run brook wssserver
+
+```
+brook wssserver --domainaddress domain.com:443 --password hello --cert /root/cert.pem --certkey /root/certkey.pem --withoutBrookProtocol
+```
+
+Get brook link
+
+```
+brook link --server wss://domain.com:443 --password hello --withoutBrookProtocol --address 1.2.3.4:443 --ca /root/ca.pem
+```
+
+### brook server wsserver wssserver forward to another socks5 server on server-side
+
+-   --toSocks5
+-   --toSocks5Username
+-   --toSocks5Password
+
+### brook server wsserver wssserver block domain and ip on server-side
+
+-   --blockDomainList
+-   --blockCIDR4List
+-   --blockCIDR6List
+-   --updateListInterval
+
+### Run brook socks5, A stand-alone standard socks5 server
+
+```
+SRC --TCP--> brook socks5 --TCP--> DST
+SRC --UDP--> brook socks5 --UDP--> DST
 ```
 
 ```
-# Run as shadowsocks client, start a http(s) proxy http(s)://127.0.0.1:8080
-$ brook ssclient -l 127.0.0.1:8080 -i 127.0.0.1 -s server_address:port -p password --http
+brook socks5 --listen :1080 --socks5ServerIP 1.2.3.4
 ```
 
-> Fixed method is aes-256-cfb
+Get brook link
 
-**See [wiki](https://github.com/txthinking/brook/wiki) for more tutorials**
+```
+brook link --server socks5://1.2.3.4:1080
+```
 
-## Contributing
+### Run brook socks5 with username and password. A stand-alone standard socks5 server
 
-Please read [CONTRIBUTING.md](https://github.com/txthinking/brook/blob/master/.github/CONTRIBUTING.md) first
+```
+brook socks5 --listen :1080 --socks5ServerIP 1.2.3.4 --username hello --password world
+```
 
-## License
+Get brook link
 
-Licensed under The GPLv3 License
+```
+brook link --server socks5://1.2.3.4:1080 --username hello --password world
+```
+
+### brook relayoverbrook can relay a local address to a remote address over brook, both TCP and UDP, it works with brook server wsserver wssserver.
+
+```
+SRC --TCP--> brook relayoverbrook --TCP(Brook Protocol) --> brook server/wsserver/wssserver --TCP--> DST
+SRC --UDP--> brook relayoverbrook --TCP/UDP(Brook Protocol) --> brook server/wsserver/wssserver --UDP--> DST
+```
+
+```
+brook relayoverbrook ... --from 127.0.0.1:5353 --to 8.8.8.8:53
+```
+
+### brook dns can create a encrypted DNS server, both TCP and UDP, it works with brook server wsserver wssserver.
+
+```
+SRC --TCP--> brook dns --TCP(Brook Protocol) --> brook server/wsserver/wssserver --TCP--> DST
+SRC --UDP--> brook dns --TCP/UDP(Brook Protocol) --> brook server/wsserver/wssserver --UDP--> DST
+```
+
+```
+brook dns ... --listen 127.0.0.1:53
+```
+
+Rule
+
+-   --dns
+-   --dnsForBypass
+-   --bypassDomainList
+-   --blockDomainList
+
+### brook tproxy Transparent Proxy Gateway on official OpenWrt
+
+**No need to manipulate iptables!**
+
+```
+opkg install ca-certificates openssl-util ca-bundle coreutils-nohup iptables-mod-tproxy
+```
+
+```
+brook tproxy --link 'brook://...' --dnsListen :5353
+```
+
+1. OpenWrt DNS forwardings: OpenWrt Web -> Network -> DHCP and DNS -> General Settings -> DNS forwardings -> 127.0.0.1#5353
+2. OpenWrt Ignore resolve file: OpenWrt Web -> Network -> DHCP and DNS -> Resolv and Hosts Files -> Ignore resolve file
+3. By default, OpenWrt will automatically issue the IP of the router as gateway and DNS for your computers and mobiles
+
+Rule
+
+-   --dnsForDefault
+-   --dnsForBypass
+-   --bypassDomainList
+-   --bypassCIDR4List
+-   --bypassCIDR6List
+-   --blockDomainList
+
+### brook tproxy Transparent Proxy Gateway on Ubuntu
+
+**No need to manipulate iptables!**
+
+```
+systemctl stop systemd-resolved
+systemctl disable systemd-resolved
+echo nameserver 8.8.8.8 > /etc/resolv.conf
+```
+
+```
+brook tproxy --link 'brook://...' --dnsListen :53
+```
+
+1. You may need to manually configure the computer or mobile gateway and DNS.
+2. If you are running in a virtual machine and the host is using a wireless card, it may not work.
+
+### brook tproxy Transparent Proxy Gateway on M1 macOS
+
+[https://talks.txthinking.com/articles/brook-gateway-on-m1-macos-en.article](https://talks.txthinking.com/articles/brook-gateway-on-m1-macos-en.article)
+
+### brook tproxy Transparent Proxy Gateway on Intel macOS
+
+[https://talks.txthinking.com/articles/brook-gateway-on-intel-macos-en.article](https://talks.txthinking.com/articles/brook-gateway-on-intel-macos-en.article)
+
+### brook tproxy Transparent Proxy Gateway on Windows
+
+[https://talks.txthinking.com/articles/brook-gateway-on-windows-en.article](https://talks.txthinking.com/articles/brook-gateway-on-windows-en.article)
+
+### GUI for official OpenWrt
+
+> **Dependencies: ca-certificates openssl-util ca-bundle coreutils-nohup iptables-mod-tproxy**
+
+**No need to manipulate iptables!**
+
+port 9999, 1080, 5353 will be used. It work with brook server, brook wsserver and brook wssserver.
+
+1. Download the [ipk](https://github.com/txthinking/brook/releases) file for your router
+2. Upload and install: OpenWrt Web -> System -> Software -> Upload Package...
+3. Refresh page, the Brook menu will appear at the top
+4. OpenWrt Web -> Brook -> type and Connect
+5. And OpenWrt DNS forwardings: OpenWrt Web -> Network -> DHCP and DNS -> General Settings -> DNS forwardings -> 127.0.0.1#5353
+6. And OpenWrt Ignore resolve file: OpenWrt Web -> Network -> DHCP and DNS -> Resolv and Hosts Files -> Ignore resolve file
+7. By default, OpenWrt will automatically issue the IP of the router as gateway and DNS for your computers and mobiles
+
+### brook relay can relay a address to a remote address. It can relay any tcp and udp server
+
+```
+SRC --TCP--> brook relay --TCP--> DST
+SRC --UDP--> brook relay --UDP--> DST
+```
+
+```
+brook relay --from :9999 --to 1.2.3.4:9999
+```
+
+### brook socks5tohttp can convert a socks5 to a http proxy
+
+```
+brook socks5tohttp --socks5 127.0.0.1:1080 --listen 127.0.0.1:8010
+```
+
+### brook pac creates pac server
+
+```
+brook pac --listen 127.0.0.1:8080 --proxy 'SOCKS5 127.0.0.1:1080; SOCKS 127.0.0.1:1080; DIRECT' --bypassDomainList ...
+```
+
+### brook pac creates pac file
+
+```
+brook pac --file proxy.pac --proxy 'SOCKS5 127.0.0.1:1080; SOCKS 127.0.0.1:1080; DIRECT' --bypassDomainList ...
+```
+
+### IPv6
+
+| Command/Client       | Remark | Support IPv4 | Support IPv6 |
+| -------------------- | ------ | ------------ | ------------ |
+| brook server         | CLI    | Yes          | Yes          |
+| brook client         | CLI    | Yes          | Yes          |
+| brook wsserver       | CLI    | Yes          | Yes          |
+| brook wsclient       | CLI    | Yes          | Yes          |
+| brook wssserver      | CLI    | Yes          | Yes          |
+| brook wssclient      | CLI    | Yes          | Yes          |
+| brook relayoverbrook | CLI    | Yes          | Yes          |
+| brook dns            | CLI    | Yes          | Yes          |
+| brook tproxy         | CLI    | Yes          | Yes          |
+| brook connect        | CLI    | Yes          | Yes          |
+| brook relay          | CLI    | Yes          | Yes          |
+| brook socks5         | CLI    | Yes          | Yes          |
+| brook socks5tohttp   | CLI    | Yes          | Yes          |
+| brook hijackhttps    | CLI    | Yes          | Yes          |
+| macOS Client         | GUI    | Yes          | Yes          |
+| Windows Client       | GUI    | Yes          | Yes/?        |
+| iOS Client           | GUI    | Yes          | Yes          |
+| Android Client       | GUI    | Yes          | Yes          |
+| OpenWrt Client       | GUI    | Yes          | Yes          |
+
+### NAT Type
+
+Symmetric
+
+## Run command as daemon via joker
+
+Install [joker](https://github.com/txthinking/joker)
+
+```
+nami install joker
+```
+
+To run the brook daemon with joker, just prefix the original command with joker
+
+```
+joker brook ...
+```
+
+Get the last command ID
+
+```
+joker last
+```
+
+View output and error of a command run via joker
+
+```
+joker log <ID>
+```
+
+View running commmands via joker
+
+```
+joker list
+```
+
+Stop a running command via joker
+
+```
+joker stop <ID>
+```
+
+## Auto start at boot via jinbe
+
+Install [jinbe](https://github.com/txthinking/jinbe)
+
+```
+nami install jinbe
+```
+
+To use jinbe to add a self-starting command at boot, just add jinbe in front of the original command
+
+```
+jinbe joker brook ...
+```
+
+View added commmands via jinbe
+
+```
+jinbe list
+```
+
+Remove a added command via jinbe
+
+```
+jinbe remove <ID>
+```
+
+## Protocol
+
+### brook server protocol
+
+[brook-server-protocol.md](protocol/brook-server-protocol.md)
+
+### brook wsserver protocol
+
+[brook-wsserver-protocol.md](protocol/brook-wsserver-protocol.md)
+
+### brook wssserver protocol
+
+[brook-wssserver-protocol.md](protocol/brook-wssserver-protocol.md)
+
+### withoutBrookProtocol protocol
+
+[withoutbrookprotocol-protocol.md](protocol/withoutbrookprotocol-protocol.md)
+
+### brook link protocol
+
+[brook-link-protocol.md](protocol/brook-link-protocol.md)
+
+## Resources
+
+-   How the Brook GUI works: https://talks.txthinking.com/articles/brook-en.article
+-   Blog: https://talks.txthinking.com
+-   Youtube: https://www.youtube.com/txthinking
+-   Rule list demo: https://github.com/txthinking/bypass
+-   https://ipip.ooo
+-   Discuss: https://github.com/txthinking/brook/discussions
+-   Telegram: https://t.me/brookgroup
+-   News: https://t.me/txthinking_news
+-   Chrome Extension: [Socks5 Configurator](https://chrome.google.com/webstore/detail/hnpgnjkeaobghpjjhaiemlahikgmnghb)
